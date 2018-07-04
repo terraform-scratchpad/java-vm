@@ -6,7 +6,7 @@
 
 # create mysql server and a database
 module "mysql-01" {
-  source                        = "../../../modules/mysql"
+  source                        = "github.com/terraform-scratchpad/azure-mysql"
   location                      = "${var.location}"
   resource_group_name           = "${var.resource_group_name}"
   tags                          = "${var.tags}"
