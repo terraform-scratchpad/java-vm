@@ -27,7 +27,7 @@ data "azurerm_key_vault_secret" "vm-subnet-id" {
 
 # TODO use mysql server outputs to build a template sorted into created VM
 module "vm-01" {
-  source                        = "../../../modules/compute"
+  source                        = "github.com/terraform-scratchpad/azure-custom-image-compute"
   location                      = "${var.location}"
   resource_group_name           = "${var.resource_group_name}"
   custom-image-name             = "${var.custom-image-name}"
