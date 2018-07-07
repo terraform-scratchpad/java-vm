@@ -4,6 +4,10 @@
 #                                                                 #
 # --------------------------------------------------------------- #
 
+provider "azurerm" {
+
+}
+
 # create mysql server and a database
 module "mysql-01" {
   source                        = "github.com/terraform-scratchpad/azure-mysql"
