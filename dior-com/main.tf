@@ -4,8 +4,16 @@
 #                                                                 #
 # --------------------------------------------------------------- #
 
-provider "azurerm" {
+terraform {
+  backend "azurerm" {
+    storage_account_name  = "lvmhtfstate"
+    container_name        = "tfstate"
+    key                   = "test.vm-java-dior.tfstate"
+  }
+}
 
+provider "azurerm" {
+  version = "1.8.0"
 }
 
 # create mysql server and a database
