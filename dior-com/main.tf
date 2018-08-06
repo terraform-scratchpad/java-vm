@@ -6,14 +6,14 @@
 
 terraform {
   backend "azurerm" {
-    storage_account_name  = "lvmhtfstate"
-    container_name        = "tfstate"
-    key                   = "vm-java-dior.tfstate"
+    storage_account_name  = "qatfstate"
+    container_name        = "qatfstatecnt"
+    key                   = "vm-java-dior-com.tfstate"
   }
 }
 
 provider "azurerm" {
-  version = "1.8.0"
+  version = "1.12.0"
 }
 
 variable "tags" {
