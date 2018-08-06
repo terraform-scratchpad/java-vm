@@ -20,3 +20,7 @@ variable "custom-image-name" {
 variable "custom-image-resource-group" {
   default = "dior-staging-packer-rg"
 }
+variable "vm_flavor" {
+  #E8s_v3
+  default = "Standard_D8s_v3"
+}

@@ -41,6 +41,7 @@ module "vm-01" {
   source                        = "github.com/terraform-scratchpad/azure-custom-image-compute"
   location                      = "${var.location}"
   resource_group_name           = "${var.resource_group_name}"
+  vm_flavor                     = "${var.vm_flavor}"
   custom-image-name             = "${var.custom-image-name}"
   custom-image-resource-group   = "${var.custom-image-resource-group}"
   subnet_id                     = "${data.azurerm_key_vault_secret.vm-subnet-id.value}"
