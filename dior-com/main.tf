@@ -8,12 +8,24 @@ terraform {
   backend "azurerm" {
     storage_account_name  = "lvmhtfstate"
     container_name        = "tfstate"
-    key                   = "test.vm-java-dior.tfstate"
+    key                   = "vm-java-dior.tfstate"
   }
 }
 
 provider "azurerm" {
   version = "1.8.0"
+}
+
+variable "tags" {
+  type = "map"
+  default = {
+    scope         = "qa"
+    source        = "terraform"
+    env           = "staging"
+    costEntity    = "dior"
+    flavor        = "java"
+    id            = "${terraform.workspace}"
+  }
 }
 
 # create mysql server and a database
@@ -45,6 +57,7 @@ module "vm-01" {
   custom-image-name             = "${var.custom-image-name}"
   custom-image-resource-group   = "${var.custom-image-resource-group}"
   subnet_id                     = "${data.azurerm_key_vault_secret.vm-subnet-id.value}"
+  tags                          = "${var.tags}"
 }
 
 
