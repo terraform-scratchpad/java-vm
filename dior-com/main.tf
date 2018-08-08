@@ -24,7 +24,6 @@ variable "tags" {
     env           = "staging"
     costEntity    = "dior"
     flavor        = "java"
-    id            = "${terraform.workspace}"
   }
 }
 
@@ -49,6 +48,11 @@ data "azurerm_key_vault_secret" "vm-subnet-id" {
   vault_uri   = "${data.azurerm_key_vault.vault.vault_uri}"
 }
 
+data "azurerm_key_vault_secret" "nsg-id" {
+  name        = "core-nsg-id"
+  vault_uri   = "${data.azurerm_key_vault.vault.vault_uri}"
+}
+
 module "vm-01" {
   source                        = "github.com/terraform-scratchpad/azure-custom-image-compute"
   location                      = "${var.location}"
@@ -57,7 +61,15 @@ module "vm-01" {
   custom-image-name             = "${var.custom-image-name}"
   custom-image-resource-group   = "${var.custom-image-resource-group}"
   subnet_id                     = "${data.azurerm_key_vault_secret.vm-subnet-id.value}"
-  tags                          = "${var.tags}"
+  nsg_id                        = "${data.azurerm_key_vault_secret.nsg-id.value}"
+  tags                          = {
+                                    scope         = "qa"
+                                    source        = "terraform"
+                                    env           = "staging"
+                                    costEntity    = "dior"
+                                    flavor        = "java"
+                                    id            = "${terraform.workspace}"
+                                  }
 }
 
 
