@@ -14,7 +14,6 @@ output "mysql-db-user" {
 }
 
 output "mysql-db-password" {
-  sensitive = true
   value = "${module.mysql-01.mysql-password}"
 }
 
