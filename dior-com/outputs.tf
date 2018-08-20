@@ -1,21 +1,7 @@
 #
 # MySQL outputs
 #
-output "mysql-host" {
-  value = "${module.mysql-01.mysql-server-host}"
-}
 
-output "mysql-db-name" {
-  value = "${module.mysql-01.db-name}"
-}
-
-output "mysql-db-user" {
-  value = "${module.mysql-01.mysql-user}"
-}
-
-output "mysql-db-password" {
-  value = "${module.mysql-01.mysql-password}"
-}
 
 #
 # VM Outputs

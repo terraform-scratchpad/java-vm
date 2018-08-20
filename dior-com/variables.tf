@@ -5,12 +5,21 @@ variable "db-name" {
 }
 
 variable "custom-image-name" {
-  default = "javaImage"
+  default = "debian-full-ecom"
 }
-variable "custom-image-resource-group" {
-  default = "dior-staging-packer-rg"
-}
+
 variable "vm_flavor" {
   #E8s_v3
   default = "Standard_D8s_v3"
+}
+
+variable "tags" {
+  type = "map"
+  default = {
+    scope         = "qa"
+    source        = "terraform"
+    env           = "staging"
+    costEntity    = "dior"
+    flavor        = "java"
+  }
 }
