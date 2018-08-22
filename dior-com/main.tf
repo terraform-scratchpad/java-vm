@@ -25,7 +25,7 @@ module "vm" {
   location                      = "${var.location}"
   resource_group_name           = "${var.resource_group_name}"
   vm_flavor                     = "${var.vm_flavor}"
-  custom-image-name             = "${var.custom-image-name}"
+  custom-image-id               = "${data.azurerm_image.custom-image.id}"
   custom-image-resource-group   = "${var.resource_group_name}"
   subnet_id                     = "${data.azurerm_key_vault_secret.vm-subnet-id.value}"
   nsg_id                        = "${data.azurerm_key_vault_secret.nsg-id.value}"
