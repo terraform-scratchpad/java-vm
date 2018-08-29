@@ -4,9 +4,6 @@ variable "db-name" {
   default = "diordb"
 }
 
-variable "custom-image-name" {
-  default = "debian-full-ecom"
-}
 
 variable "vm_flavor" {
   #E8s_v3
