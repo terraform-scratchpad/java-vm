@@ -1,7 +1,3 @@
-#
-# MySQL outputs
-#
-
 
 #
 # VM Outputs
